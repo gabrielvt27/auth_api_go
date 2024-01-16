@@ -269,3 +269,14 @@ func Validate(c *gin.Context) {
 		},
 	})
 }
+
+func HelloApi(c *gin.Context) {
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": struct {
+			Message string
+		}{
+			Message: "hello-api",
+		},
+	})
+}
