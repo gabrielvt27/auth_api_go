@@ -4,6 +4,7 @@ import (
 	"api-go/controllers"
 	"api-go/initializers"
 	"api-go/middlewares"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,5 +25,7 @@ func main() {
 	r.POST("/edit-email", middlewares.RequireAuth, controllers.EditEmail)
 	r.POST("/edit-password", middlewares.RequireAuth, controllers.EditPassword)
 
-	r.Run()
+	appPort := os.Getenv("APP_PORT")
+
+	r.Run(":" + appPort)
 }
